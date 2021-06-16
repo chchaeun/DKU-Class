@@ -1,3 +1,2 @@
-# DKU-OS_2021
+# OS-Scheduling-Simulator
 
-Professor: 단국대학교 최종무 교수님
