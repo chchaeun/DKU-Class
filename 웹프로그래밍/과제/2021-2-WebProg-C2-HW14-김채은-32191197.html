@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>오디오 리스트 연속 재생</title>
+    <style></style>
+  </head>
+  <body>
+    <h1>오디오 리스트 연속 재생</h1>
+    <hr />
+    <p>
+      처음 play 버튼을 누르면 리스트에 있는 곡이 연속하여 자동 재생됩니다.
+      마우스로 다른 곡을 선택하면 곡이 바귑니다. next 버튼을 누르면 다음 곡으로
+      넘어갑니다.
+    </p>
+    <hr />
+    <audio id="audio" width="400" controls autoplay></audio>
+    <select id="select" size="4" onchange="onSelectChange(this)">
+      <option
+        value="C:/Users/82104/Desktop/웹프로그래밍/과제/BayStreetBillionaires.mp3"
+      >
+        BayStreetBillionaires
+      </option>
+      <option
+        value="C:/Users/82104/Desktop/웹프로그래밍/과제/NorthOaklandExtasy.mp3"
+      >
+        NorthOaklandExtasy
+      </option>
+      <option
+        value="C:/Users/82104/Desktop/웹프로그래밍/과제/SpaceAgeHustle.mp3"
+      >
+        SpaceAgeHustle
+      </option>
+      <option
+        value="C:/Users/82104/Desktop/웹프로그래밍/과제/TravelNonstop.mp3"
+      >
+        TravelNonstop
+      </option>
+    </select>
+    <button onclick="onPlayClick()">play</button>
+    <button onclick="onNextClick()">next</button>
+    <div id="music">현재 연주되는 곡</div>
+  </body>
+  <script>
+    const select = document.querySelector("#select");
+    const audio = document.querySelector("#audio");
+    let currentIndex = 0;
+    const music = [
+      "BayStreetBillionaires.mp3",
+      "NorthOaklandExtasy.mp3",
+      "SpaceAgeHustle.mp3",
+      "TravelNonstop.mp3",
+    ];
+    const onPlayClick = () => {
+      currentIndex = 0;
+      playAudio();
+    };
+
+    const onNextClick = () => {
+      currentIndex = (currentIndex + 1) % 4;
+      playAudio();
+    };
+    const onSelectChange = (e) => {
+      currentIndex = select.selectedIndex;
+      playAudio();
+    };
+    const playAudio = () => {
+      audio.src =
+        "C:/Users/82104/Desktop/웹프로그래밍/과제/" + music[currentIndex];
+      const currentMusic = document.querySelector("#music");
+      currentMusic.innerText = music[currentIndex];
+    };
+  </script>
+</html>

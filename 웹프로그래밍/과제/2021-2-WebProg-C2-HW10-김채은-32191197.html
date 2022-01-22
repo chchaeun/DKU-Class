@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>마우스 클릭 연습</title>
+<style>
+    .table{
+        border: none;
+        width: 500px;
+        height: 400px;
+    }
+    td{
+        width: 50px;
+        height: 40px;
+    }
+    img{
+        width: 40px;
+    }
+</style>
+</head>
+
+<script>
+    let select=0;
+    const squirrel = new Image();
+    squirrel.src = "다람쥐.png"
+    squirrel.class="squirrel"
+
+    function init(){
+        const table = document.querySelector(".table")
+        for(let i=0; i<10; i++){
+            const tr = document.createElement("tr")
+            for(let j=0; j<10; j++){
+                const td = document.createElement("td")
+                tr.appendChild(td)
+                const img = document.createElement("img")
+                td.appendChild(img)
+            }
+            table.appendChild(tr)
+        }
+  
+        for(let i=0;i<100;i++) { 
+            document.images[i].onclick=moveImage;
+            document.images[i].style.visibility = "hidden"; 
+        }
+        moveImage();
+    }
+    
+    function moveImage() { 
+        document.images[select].src=""; 
+        document.images[select].style.visibility = "hidden"; 
+        select = Math.floor(Math.random()*100); 
+        document.images[select].src=squirrel.src; 
+        document.images[select].style.visibility = "visible"; 
+    }
+
+</script>
+<body onload="init()">
+    <h2>마우스 클릭 연습</h2>
+    <hr/>
+    <table class="table" border="1">
+    </table>
+</body>
+</html>

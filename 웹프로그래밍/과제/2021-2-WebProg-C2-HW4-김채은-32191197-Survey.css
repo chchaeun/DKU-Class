@@ -1,0 +1,43 @@
+body{
+    background-color: aliceblue;
+}
+
+h1{
+    color: brown;
+    text-align: center;
+}
+
+header{
+    border-bottom-style: solid;
+    border-bottom-color: black;
+    border-bottom-width: 1px;
+}
+
+ul{
+    border-style: dotted;
+    border-width: 1px;
+}
+
+a{
+    text-decoration: none;
+}
+
+p{
+    font-family: serif;
+    font-size: 1em;
+    text-indent: 1em;
+}
+
+h3{
+    color: blue;
+    text-shadow: 1px 1px 2px skyblue;
+}
+
+footer{
+    border-radius: 15px;
+    background: orange;
+}
+
+#container{
+    background: pink;
+}

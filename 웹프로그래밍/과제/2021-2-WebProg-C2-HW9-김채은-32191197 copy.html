@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>갬블링 게임</title>
+<style>
+    .btn, #result{
+        cursor: pointer;
+    }
+    .btn{
+        font-size: 24px;
+        padding: 10px;
+        background-color: beige;
+        position:relative;
+        top: 10px;
+    }
+    #result{
+        position:relative;
+        top: 10px;
+    }
+</style>
+</head>
+<body>
+<h2>갬블링 게임</h2>
+<p>각 숫자를 클릭하면 0에서 2 사이의 난수로 바뀝니다. 모두 같은 수가 나오면 승리합니다.</p>
+<hr/>
+<div class="number">
+    <span class="btn first">0</span>
+    <span class="btn second">0</span>
+    <span class="btn third">0</span>
+</div>
+<p id="result"></p>
+</body>
+<script>
+    const first = document.querySelector(".first")
+    const second = document.querySelector(".second")
+    const third = document.querySelector(".third")
+    const number = document.querySelector(".number")
+
+    let arr = [0, 0, 0]
+    const result = document.querySelector("#result")
+
+
+    const onResetClick = ()=>{
+        arr[0]=0
+        arr[1]=0
+        arr[2]=0
+        result.innerText =""
+        first.innerText="0"
+        second.innerText="0"
+        third.innerText="0"
+    }
+
+    result.addEventListener('click', onResetClick)
+
+    const showResult = () =>{
+        if(arr[0]===1 && arr[1]===1 && arr[2]===1){
+            if(first.innerText===second.innerText && second.innerText===third.innerText){
+                result.innerText = "Success(click here to do again)"
+            }else{
+                result.innerText = "Fail(click here to do again)"
+            }
+        }
+    }
+
+    const onFirstClick = ()=>{
+        if(arr[0]===0){    
+            first.innerText = Math.floor(Math.random()*3);
+        }
+        arr[0]=1
+        showResult()
+    }
+    const onSecondClick = ()=>{
+        if(arr[1]===0){    
+            second.innerText = Math.floor(Math.random()*3);
+        }
+        arr[1]=1
+        showResult()
+    }
+    const onThirdClick = ()=>{
+        if(arr[2]===0){    
+            third.innerText = Math.floor(Math.random()*3);
+        }
+        arr[2]=1
+        showResult()
+    }
+    
+    first.addEventListener('click', onFirstClick)
+    second.addEventListener('click', onSecondClick)
+    third.addEventListener('click', onThirdClick)
+
+
+</script>
+</html>

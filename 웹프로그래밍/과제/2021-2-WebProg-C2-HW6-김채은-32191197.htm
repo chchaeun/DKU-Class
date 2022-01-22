@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>!</title>
+<style>
+    #content{
+        padding-top: 20px;
+        padding-left: 5px;
+        border-top-width: 1px;
+        border-top-style: solid;
+    }
+</style>
+</head>
+<body>
+<h1>별 문자 출력하기</h1>
+<p id="content"></p>
+</body>
+<script>
+    let propmt = prompt("정수를 입력하세요")
+    propmt = parseInt(propmt)
+    let str = "";
+    if(Number.isInteger(propmt)){
+        for(let i=1; i<=propmt; i++){
+            for(let j=1; j<=i; j++){
+                str+="*";
+            }
+            str+="\n"
+        }
+    }else{
+        str="입력 오류입니다."
+    }
+    const content = document.querySelector("#content")
+    content.innerText = str
+</script>
+</html>

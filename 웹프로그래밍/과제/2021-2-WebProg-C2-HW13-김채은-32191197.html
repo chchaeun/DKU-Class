@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>단어장 만들기</title>
+    <style></style>
+  </head>
+  <body>
+    <h1>나의 단어장 만들기</h1>
+    <hr />
+    <label>영어<input class="english" /></label>
+    <label>한글<input class="korean" /></label>
+    <button class="save">단어 저장</button>
+    <button class="search">영단어 검색</button>
+    <button class="remove">단어 삭제</button>
+    <button class="show">전체보기</button>
+  </body>
+  <script>
+    const english = document.querySelector(".english");
+    const korean = document.querySelector(".korean");
+    const save = document.querySelector(".save");
+    const search = document.querySelector(".search");
+    const remove = document.querySelector(".remove");
+    const show = document.querySelector(".show");
+
+    const onSaveClick = () => {
+      const e_value = english.value;
+      const k_value = korean.value;
+      if (localStorage.getItem(e_value)) {
+        if (confirm(`${e_value}가 이미 있습니다. 수정하시겠습니까?`)) {
+          localStorage.setItem(e_value, k_value);
+        }
+      } else {
+        localStorage.setItem(e_value, k_value);
+      }
+      english.value = "";
+      korean.value = "";
+    };
+    const onSearchClick = () => {
+      console.log(english);
+      const e_value = english.value;
+      const result = localStorage.getItem(e_value);
+      if (result) {
+        alert(`${e_value}: ${result}`);
+      } else {
+        alert(`${e_value}는 없는 단어입니다.`);
+      }
+
+      english.value = "";
+      korean.value = "";
+    };
+    const onRemoveClick = () => {
+      const e_value = english.value;
+      const k_value = korean.value;
+      if (localStorage.getItem(e_value)) {
+        localStorage.removeItem(e_value);
+      } else {
+        alert(`${e_value}는 없는 단어입니다.`);
+      }
+
+      english.value = "";
+      korean.value = "";
+    };
+    const onShowClick = () => {
+      window.open(
+        "./2021-2-WebProg-C2-HW13-김채은-32191197-print.html",
+        "_blank"
+      );
+    };
+    save.addEventListener("click", onSaveClick);
+    search.addEventListener("click", onSearchClick);
+    remove.addEventListener("click", onRemoveClick);
+    show.addEventListener("click", onShowClick);
+  </script>
+</html>

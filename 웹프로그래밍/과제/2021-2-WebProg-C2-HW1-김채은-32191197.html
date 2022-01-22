@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>김채은 자기소개</title>
+<style>
+    body{
+        background-color: beige;
+    }
+    h1{
+        text-align: center
+    }
+    .hidden{
+        display:none;
+    }
+    .basic-img{
+        position: absolute;
+        left: 50%;
+        top: 30%;
+        transform: translate(-50%);
+    }
+    .content{
+        position: absolute;
+        left: 50%;
+        transform: translate(-50%);
+        text-align: center;
+    }
+</style>
+</head>
+<body>
+<h1 class="title">김채은</h1>
+<img class="basic-img hidden" width="300px" src="https://cdn.pixabay.com/photo/2015/04/23/22/00/tree-736885_1280.jpg"/>
+<p class="content">저는 소프트웨어학과 19학번 김채은입니다.<br/>저는 웹 프론트엔드를 공부하고 있습니다.</p>
+</body>
+
+<script>
+    const title = document.querySelector(".title");
+    title.addEventListener('mouseover', show);
+    title.addEventListener('mouseleave', hide);
+    const img = document.querySelector('.basic-img');
+
+    function show(){
+        img.classList.remove('hidden');
+    }
+    function hide(){
+        img.classList.add('hidden');
+    }
+</script>
+</html>

@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>단어장</title>
+  </head>
+  <body>
+    <h1>나의 단어장 모두 출력</h1>
+    <hr />
+    <table>
+      <td class="index"></td>
+      <td class="english"></td>
+      <td class="korean"></td>
+    </table>
+  </body>
+  <script>
+    const index = document.querySelector(".index");
+    const english = document.querySelector(".english");
+    const korean = document.querySelector(".korean");
+    for (let i = 0; i < localStorage.length; i++) {
+      let key = localStorage.key(i);
+
+      const tr_index = document.createElement("tr");
+      tr_index.innerText = i + 1;
+      const tr_eng = document.createElement("tr");
+      tr_eng.innerText = key;
+      const tr_kor = document.createElement("tr");
+      tr_kor.innerText = localStorage.getItem(key);
+      index.appendChild(tr_index);
+      english.appendChild(tr_eng);
+      korean.appendChild(tr_kor);
+    }
+  </script>
+</html>

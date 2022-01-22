@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>파이 차트</title>
+<style>
+
+</style>
+</head>
+<body>
+    <label>
+        A
+        <input type="number" value="0" class="count"/>
+        명
+    </label>
+    <label>
+        B
+        <input type="number" value="0" class="count"/>
+        명
+    </label>
+    <label>
+        C
+        <input type="number" value="0" class="count"/>
+        명
+    </label>
+    <label>
+        D
+        <input type="number" value="0" class="count"/>
+        명
+    </label>
+    <label>
+        F
+        <input type="number" value="0" class="count"/>
+        명
+    </label>
+    <button id="btn">그리기</button>
+    <div>
+        A: blue
+        B: green
+        C: yellow
+        D: magenta
+        F: red
+    </div>
+    <canvas id="my-canvas" width="1000" height="1000">
+    </canvas>
+</body>
+<script>
+    const colors = ["blue", "green", "yellow", "magenta", "red"]
+    const grades = ["A", "B", "C", "D", "F"]
+    const counts = document.querySelectorAll(".count")
+    
+    const canvas = document.querySelector("#my-canvas")
+    const context = canvas.getContext("2d")
+    
+    const draw = () =>{
+        let values = []
+        let sum = 0
+        for(let i=0; i<5; i++){
+            values[i] = parseInt(counts[i].value)
+            sum+=values[i]
+        }
+        start = 0
+        for(let i=0; i<5; i++){
+            end = start+(values[i]/sum)*2*Math.PI
+            context.beginPath()
+            context.moveTo(300, 300)
+            context.arc(300, 300, 200, start, end)
+            context.closePath()
+            context.fillStyle = colors[i]
+            context.fill()
+            start = end
+        }
+    }
+    const btn = document.querySelector("#btn")
+    btn.addEventListener("click", draw)
+</script>
+
+</html>

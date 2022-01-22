@@ -1,0 +1,60 @@
+body{
+    background-color: aliceblue;
+}
+
+h1{
+    color: brown;
+    text-align: center;
+}
+
+header{
+    background: yellow;
+    width: 100%;
+    left:0;
+    border-bottom-style: solid;
+    border-bottom-color: black;
+    border-bottom-width: 1px;
+}
+
+#tables{
+    background: orange;
+    width: 20%;
+    height: 850px;
+    position: absolute;
+    left: 0%;
+    
+}
+ul{
+    border-style: dotted;
+    border-width: 1px;
+}
+#contents{
+    background: skyblue;
+    position:absolute;
+    left: 20%;
+    height: 850px;
+
+}
+
+a{
+    text-decoration: none;
+}
+
+p{
+    font-family: serif;
+    font-size: 1em;
+    text-indent: 1em;
+}
+
+h3{
+    color: blue;
+    text-shadow: 1px 1px 2px skyblue;
+}
+
+footer{
+    border-radius: 15px;
+    background: plum;
+    position:absolute;
+    width: 100vw;
+    top: 1000px
+}

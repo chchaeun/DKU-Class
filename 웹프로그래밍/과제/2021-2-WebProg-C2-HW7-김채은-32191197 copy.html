@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>배열로 리스트 만들기</title>
+<style>
+    #content{
+        padding-top: 20px;
+        padding-left: 5px;
+        border-top-width: 1px;
+        border-top-style: solid;
+    }
+</style>
+</head>
+<body>
+<h2>라면을 만드는 데 필요한 재료</h2>
+<p id="content"></p>
+</body>
+<script>
+    var itemlist = ["라면", "계란", "물", "파"];
+    const ul = document.createElement("ul")
+    for(var i=0; i<itemlist.length; i++){
+        var li = document.createElement("li")
+        li.innerText = itemlist[i];
+        ul.appendChild(li)
+    }
+    const p = document.querySelector("#content")
+    p.appendChild(ul)
+</script>
+</html>
